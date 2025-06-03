@@ -140,3 +140,5 @@ export class AppComponent {
     this.modalTaskIndex = null;
   }
 }
+
+[/*I have learnt to use angular */]
