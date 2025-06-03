@@ -21,9 +21,16 @@ import { FormsModule } from '@angular/forms';
           <button 
             (click)="todoApp()" 
             [disabled]="!name.trim()" 
-            class="px-5 py-3 bg-green-500 hover:bg-green-600 text-white font-semibold rounded-lg disabled:opacity-50"
+            class="px-3 py-3 bg-green-500 hover:bg-green-600 text-white font-semibold rounded-lg disabled:opacity-50"
           >
             {{ editingIndex !== null ? 'Update' : 'Add' }}
+          </button>
+
+          <button *ngIf ="editingIndex !== null"
+          (click)="cancelEdit()"
+          class="px-3 py-3 bg-gray-400 hover:bg-gray-500 text-white font-semibold rounded-lg"
+          >
+           Cancel 
           </button>
         </div>
 
@@ -100,6 +107,11 @@ export class AppComponent {
       }
       this.name = '';
     }
+  }
+
+  cancelEdit(){
+    this.editingIndex = null;
+    this.name = '';
   }
 
   deleteTodo(index: number) {
